@@ -1,0 +1,1051 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*genaral*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root{
+    --primary:#ff0051;
+    --second:#3a3a3a;
+    --third:#f2f2f2;
+}
+
+body{
+    background: #000000;
+    font-family: "Roboto", sans-serif;
+}
+
+/* header section */
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    background: transparent;
+    transition: 0.5s;
+    z-index: 1100;
+}
+
+header.header-scrolled{
+    padding: 15px 100px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(15px);
+}
+.logo{
+    position: relative;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.nav{
+     display: flex;
+     align-items: center;
+}
+.nav li{
+    position: relative;
+    list-style: none;
+    margin: 0 20px;
+}
+.nav li a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.5s;
+    font-weight: 300;
+    font-size: 1em;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+.nav li a:hover{
+    color: var(--primary);
+}
+.util{
+    display: flex;
+    align-items: center;
+}
+.util li{
+   position: relative;
+   list-style: none;
+   margin: 0 20px;
+}
+.util li a{
+    color: #ffffff;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.util li a ion-icon{
+    font-size: 1.6em;
+}
+.util li a:hover{
+    color: var(--primary);
+}
+.fir{
+    display: flex;
+}
+.util li .number{
+    position: relative;
+    right: 10px;
+    bottom: -13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6em;
+    font-weight: 400;
+}
+/* Banner section */
+#banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* make shade */
+.women::before,
+.men::before,
+.special::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    transition: 0.5s;
+}
+
+.women:hover::before,
+.men:hover::before,
+.special:hover::before{
+    background: transparent;
+}
+
+.women{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    background: var(--second);
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.women img {
+        margin-left: -50px;
+        object-fit: contain;
+        max-width: 100%;
+        max-height: 100%;
+        transform: scale(1.25);
+    }
+    .women .switch-btn{
+       margin-left: 100px;
+        
+        width: 300px;
+    }
+.men{
+    position: absolute;
+    top: 0;
+    left: 30%;
+    height: 100%;
+    width: 40%;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0 100%, 25% 50%,0 0);
+    background: var(--second);
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.special{
+    position: absolute;
+    
+    top: 0;
+    left: 60%;
+    height: 100%;
+    width: 40%;
+    clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0% 50%);
+    background: var(--second);
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#banner.left .women,
+#banner.middle .men,
+#banner.right .special{
+    width: 100%;
+    clip-path: polygon(100% 0%, 100% 50%, 100% 100%, 0% 100%, 0% 50%,0% 0%);
+    transition: 1s;
+}
+
+#banner.right .special{
+    left: 0;
+}
+
+#banner.middle .men{
+    left: 0;
+}
+
+#banner.left .men,
+#banner.left .special{
+    left: 120%;
+}
+
+#banner.right .men,
+#banner.right .women{
+    left: -120%;
+}
+ 
+#banner.middle .women{
+    left: -120%;
+}
+
+#banner.middle .special{
+    left: 120%;
+}
+
+.women img,
+.men img,
+.special img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.5s;
+}
+
+#banner.left .women img{
+    width: 50%;
+}
+#banner.middle .men img,
+#banner.right .special img{
+    left: 50%;
+    width: 50%;
+}
+
+/* banner switch */
+.switch-btn{
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 5em;
+    font-weight: 300;
+    margin-top: 40%;
+    z-index: 1000;
+    transition: 0.5s;
+    transform: scale(1);
+}
+.switch-btn:hover{
+    transform: scale(1.2);
+}
+
+/* banner reset button */
+.reset{
+    position: absolute;
+    left: 100px;
+    bottom: 100px;
+    z-index: 1000;
+    transition: 0.5s;
+}
+
+.reset.active{
+    transform: rotateZ(180deg);
+}
+
+.reset ion-icon{
+    color: #ffffff;
+    font-size: 2.5em;
+    transition: 0.3s;
+} 
+
+.reset ion-icon:hover{
+    color: var(--primary);
+}
+
+/* banner content */
+#banner .content{
+    position: absolute;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 900;
+}
+
+#banner .content h1{
+    
+    color: #ffffff;
+    width: 600px;
+    font-size: 4.5em;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+#banner .content p{
+    color: #ffffff;
+    width: 500px;
+    font-weight: 200;
+    font-size: 1em;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    
+}
+
+#banner .content a{
+    position: relative;
+    width: 200px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: 1px solid #ffffff;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#banner .content a:hover{
+    background: #ffffff;
+    color: var(--primary);
+}
+#banner .content a ion-icon{
+    font-size: 1.3em;
+}
+
+#banner.left .women .content,
+#banner.middle .men .content,
+#banner.right .special .content{
+    opacity: 1;
+    visibility: visible;
+}
+
+.women .content{
+    left: 55%;
+}
+
+.men .content,
+.special .content{
+    left: 100px;
+}
+
+/* Main section */
+main{
+    width: 100%;
+    padding: 100px 0;
+    background: #ffffff; 
+}
+
+/* call up section */
+section.call-up{
+    width: 100%;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.call-up-box{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+}
+
+.call-up-box ion-icon{
+    font-size: 5em;
+    color: var(--primary);
+}
+
+.call-up-box h4{
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.call-up-box p{
+    font-weight: 300;
+}
+
+/* about section */
+.about{
+    padding: 100px 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.about .left,
+.about .right{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.promotion,
+.discovery{
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    padding: 50px;
+}
+
+.style,
+.collection{
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    padding: 50px;
+}
+
+.about-box{
+    overflow: hidden;
+}
+ 
+.about-box img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(1);
+    object-fit: cover;
+    object-position: center;
+    transition: 1s;
+}
+
+.about-box:hover img{
+    transform: scale(1.1);
+}
+
+.about-box::after{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+
+.about-box:hover::after{
+    background: rgba(0, 0, 0, 0);
+}
+
+.about .description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 900;
+}
+
+.about .description h4{
+    position: relative;
+    color: #ffffff;
+    font-size: 2.5em;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.about .description h4::after{
+    position: absolute;
+    content: '';
+    background: var(--primary);
+    bottom: -10px;
+    left: 0;
+    width: 70%;
+    height: 3px;
+}
+
+.about .description p{
+    color: #ffffff;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.about a{
+    position: relative;
+    text-decoration: none;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.5s;
+}
+
+.about a:hover{
+    gap: 10px;
+}
+
+/* product section */
+
+#products{
+    position: relative;
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
+}
+
+#product-filter{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+#product-filter li{
+    position: relative;
+    list-style: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#product-filter li::before{
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background: var(--primary);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+#product-filter li:hover::before,
+#product-filter li.filter-active::before{
+    visibility: visible;
+    opacity: 1;
+}
+
+.product-container{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-item{
+    position: relative;
+    height: 450px;
+    background: #ffffff;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.product-item img{
+    position: relative;
+    transform: scale(1);
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    transition: 1s;
+    transform-origin: bottom;
+}
+
+.product-item img:hover{
+    transform: scale(1.1);
+}
+
+.product-info{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+}
+
+.product-info h4{
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.product-info p{
+    font-weight: 200;
+    color: #000000;
+}
+.product-info .cross{
+    text-decoration: line-through;
+}
+.product-info .price{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.product-rating{
+    display: flex;
+    gap: 5px;
+}
+
+.product-rating li{
+    list-style: none;
+}
+
+.product-rating li ion-icon{
+    font-size: 1.2em;
+    color: var(--primary);
+}
+
+.product-item .hot{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 900;
+    width: 50px;
+    height: 30px;
+    color: #ffffff;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-to-bag{
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    padding: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+.add-to-bag ion-icon{
+    font-size: 1.8em;
+}
+.add-to-bag:hover{
+    background: var(--third);
+    color: var(--primary);
+}
+.loading-more{
+    margin-top: 1500px;
+}
+
+.loading-more a{
+    text-decoration: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 10px 25px;
+    color: #ffffff;
+    font-weight: 300;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    transition: 0.3s;
+}
+
+.loading-more a:hover{
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* newsletter signup section */
+
+#newsletter{
+    position: relative;
+    padding: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 80px;
+    width: 100%;
+    height: 120px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+
+}
+
+.newsletter-box{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.newsletter-box ion-icon{
+    font-size: 3em;
+    color: var(--primary);
+}
+
+.newsletter-box h4{
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+#newsletter p{
+    width: 40%;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+#newsletter .discount{
+    color: var(--primary);
+    font-size: 4em;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#newsletter form{
+    width: 40%;
+    display: inline-flex;
+    justify-content: flex-end;
+}
+
+#newsletter form input[type='text']{
+    outline: none;
+    border: 1px solid var(--third);
+    width: 300px;
+    padding: 10px 20px;
+}
+
+#newsletter form input[type='submit']{
+    outline: none;
+    border: 1px solid var(--primary);
+    padding: 10px 30px;
+    background: var(--primary);
+    color: #ffffff;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#newsletter form input[type='submit']:hover{
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* contact section */
+
+#contact{
+    position: relative;
+    padding: 100px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#contact .map{
+    width: 100%;
+}
+
+.contact .info-wrap{
+    margin-top: 80px;
+    width: 80%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    padding: 30px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact .info{
+    background: #ffffff;
+}
+
+.contact .info ion-icon{
+    color: #ffffff;
+    float: left;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.contact .info h4{
+    padding: 0 0 0 80px;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.contact .info p{
+    padding: 0 0 0 80px;
+    font-size: 1em;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+
+.contact .contact-form{
+    width: 80%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.12);
+    background: #ffffff;
+    padding: 30px 50px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact .contact-form .form-group{
+    padding-bottom :10px ;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.contact .contact-form input,
+.contact .contact-form textarea{
+    width: 100%;
+    border-radius: 0%;
+    box-shadow: none;
+    font-size: 1em;
+    border: 1px solid var(--third);
+    outline: none;
+}
+
+.contact .contact-form input::placeholder,
+.contact .contact-form textarea::placeholder{
+    font-size: 1em;
+    height: 45px;
+}
+
+.contact .contact-form textarea{
+    padding: 10px 12px;
+}
+
+.contact .contact-form .text-center{
+    display: flex;
+    justify-content: center;
+}
+
+.contact .contact-form button[type='submit']{
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    padding: 10px 25px;
+    color: #ffffff;
+    font-size: 1em;
+    text-transform: uppercase;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.contact .contact-form button[type='submit']:hover{
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* footer section  */
+
+footer{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter:blur(20px);
+    transition: 0.5s;
+    z-index: 1100;
+}
+
+.sci{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sci li{
+    list-style: none;
+}
+
+.sci li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.3em;
+    transition: 0.3s;
+}
+
+.sci li .share{
+    padding: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sci li .share:hover{
+    background: #ffffff;
+}
+
+.sci li a:hover{
+    color: var(--primary);
+}
+
+.footer-nav{
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav li{
+    list-style: none;
+}
+
+.footer-nav li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.footer-nav li a:hover{
+    color: var(--primary);
+}
+
+.ask-us{
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.ask-us p{
+    color: #ffffff;
+    font-weight: 300;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.chat{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 2em;
+    padding: 10px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.chat:hover{
+    background: #ffffff;
+    color: var(--primary);
+}
+
+/* back to top */
+
+.back-to-top{
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 30px;
+    background: var(--primary);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+}
+
+.back-to-top ion-icon{
+    font-size: 1.5em;
+}
+
+.back-to-top.active{
+    visibility: visible;
+    opacity: 1;
+}
+
